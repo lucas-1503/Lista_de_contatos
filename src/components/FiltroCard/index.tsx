@@ -6,7 +6,7 @@ import * as S from './styles'
 
 export type Props = {
   criterio: 'amigos' | 'familia' | 'trabalho' | 'todos'
-  valor: enums.Categoria
+  valor?: enums.Categoria
 }
 
 const FiltroCard = ({ criterio, valor }: Props) => {

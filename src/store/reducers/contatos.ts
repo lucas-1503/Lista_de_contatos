@@ -12,21 +12,21 @@ const initialState: ContatoState = {
       id: 1,
       nome: 'João',
       email: 'joao@gmail.com',
-      telefone: 1199578872,
+      telefone: '1199578872',
       categoria: enums.Categoria.TRABALHO
     },
     {
       id: 2,
       nome: 'Lucas',
       email: 'lucas@gmail.com',
-      telefone: 16985477525,
+      telefone: '16985477525',
       categoria: enums.Categoria.AMIGOS
     },
     {
       id: 3,
       nome: 'Julia',
       email: 'julia@gmail.com',
-      telefone: 55428599693,
+      telefone: '55428599693',
       categoria: enums.Categoria.FAMILIA
     }
   ]
@@ -49,6 +49,11 @@ const contatoSlice = createSlice({
         state.itens[indexDaTarefa] = action.payload
       }
     },
+    remover: (state, action: PayloadAction<number>) => {
+      state.itens = [
+        ...state.itens.filter((tarefa) => tarefa.id !== action.payload)
+      ]
+    },
     cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
       const contatoJaExiste = state.itens.find(
         (contato) =>
@@ -68,6 +73,6 @@ const contatoSlice = createSlice({
   }
 })
 
-export const { deletar, cadastrar, editar } = contatoSlice.actions
+export const { deletar, cadastrar, editar, remover } = contatoSlice.actions
 
 export default contatoSlice.reducer

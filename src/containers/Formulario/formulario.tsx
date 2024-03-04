@@ -12,7 +12,7 @@ const Formulario = () => {
   const [nome, setNome] = useState('')
   const [categoria, setCategoria] = useState(enums.Categoria.AMIGOS)
   const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState(0)
+  const [telefone, setTelefone] = useState('')
 
   const cadastrarContato = (evento: FormEvent) => {
     evento.preventDefault()
@@ -50,8 +50,8 @@ const Formulario = () => {
             <br />
             <Campo
               value={telefone}
-              onChange={(evento) => setTelefone(parseInt(evento.target.value))}
-              type="number"
+              onChange={(evento) => setTelefone(evento.target.value)}
+              type="string"
               placeholder="telefone"
             />
             <br />
@@ -70,10 +70,14 @@ const Formulario = () => {
                     defaultChecked={categoria === enums.Categoria.AMIGOS}
                   />
                   {''}
-                  <label htmlFor={categoria}>{categoria}</label>
+                  <S.Label categoria={categoria} htmlFor={categoria}>
+                    {categoria}
+                  </S.Label>
                 </S.Opcao>
               ))}
             </S.Opcoes>
+            <S.Texto>Selecione uma imagem</S.Texto>
+            <input type="file" src="" />
             <S.DivBotao>
               <S.Botao type="submit">Cadastrar</S.Botao>
               <S.botao2 to="/">Voltar</S.botao2>

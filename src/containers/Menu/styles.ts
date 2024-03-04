@@ -6,7 +6,7 @@ export const Menu = styled.nav`
   display: flex;
   color: #fff;
   background-color: #201410;
-  max-width: 200px;
+  max-width: 700px;
   width: 100%;
 `
 
@@ -46,6 +46,9 @@ export const Botao = styled(Link)`
 export const Botao2 = styled.button`
   padding: 8px;
   border: 3px solid ${variaveis.corPrincipal};
+  max-width: 500px;
+  width: 100%;
+  height: 50px;
   color: ${variaveis.corPrincipal};
   background-color: #000;
   font-weight: bold;

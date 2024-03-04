@@ -1,22 +1,20 @@
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import * as S from './styles'
 import { RootReducer } from '../../store'
-import { useState } from 'react'
 
 const Menu = () => {
   const { ativo } = useSelector((state: RootReducer) => state.menu)
+  const [display, setDisplay] = useState(false)
 
-  const [display, setDisplay] = useState(ativo)
-
-  const alteraDisplay = () => {
-    const ativo = display
-    if (ativo === 'isActive') {
-      setDisplay('isInactive')
-    } else if (ativo === 'isInactive') {
-      setDisplay('isActive')
-      console.log(ativo)
-    }
-  }
+  // const alteraDisplay = () => {
+  //   const ativo = display
+  //   if (ativo === 'isActive') {
+  //     setDisplay('isInactive')
+  //   } else if (ativo === 'isInactive') {
+  //     setDisplay('isActive')
+  //   }
+  // }
 
   return (
     <>
@@ -27,8 +25,14 @@ const Menu = () => {
               <S.Botao to="/novo">Cadastrar</S.Botao>
             </S.Item>
             <S.Item>
-              <S.Botao2 onClick={alteraDisplay}>
-                {ativo === 'isActive' ? 'remover filtro' : 'mostrar filtro'}
+              <S.Botao2
+                onClick={
+                  display === false
+                    ? () => setDisplay(true)
+                    : () => setDisplay(false)
+                }
+              >
+                {display === false ? 'mostrar filtro' : 'remover filtro'}
               </S.Botao2>
             </S.Item>
           </S.Lista>

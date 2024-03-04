@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 import { Link } from 'react-router-dom'
+import * as enums from '../../uteis/index'
+
+type Props = {
+  categoria:
+    | enums.Categoria.AMIGOS
+    | enums.Categoria.FAMILIA
+    | enums.Categoria.TRABALHO
+    | 'todos'
+}
 
 export const Titulo = styled.h2`
   font-size: 24px;
@@ -12,12 +21,14 @@ export const Titulo = styled.h2`
 `
 export const Conteudo = styled.div`
   max-width: 400px;
-
-  height: 600px;
-
+  height: 575px;
   background-color: ${variaveis.cordefundo};
   display: block;
   color: ${variaveis.corTexto};
+  border: 3px solid ${variaveis.corPrincipal};
+  margin-top: 20px;
+  margin-bottom: 80px;
+  border-radius: 8px;
 `
 export const Form = styled.form`
   display: block;
@@ -72,9 +83,21 @@ export const botao2 = styled(Link)`
 `
 export const Texto = styled.p`
   padding: 30px;
+  color: ${variaveis.corPrincipal};
+  font-weight: bold;
 `
 export const DivBotao = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 30px;
+  padding-top: 10px;
+`
+export const Label = styled.label<Props>`
+  color: ${(props) =>
+    props.categoria == enums.Categoria.AMIGOS
+      ? '#f48020'
+      : props.categoria == enums.Categoria.FAMILIA
+      ? '#f72585'
+      : props.categoria == enums.Categoria.TRABALHO
+      ? '#f6e837'
+      : `${variaveis.corPrincipal}`};
 `

@@ -26,9 +26,10 @@ export const ContainerPrincipal = styled.div`
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
-  heigth: 100vh;
-background-color:${variaveis.cordefundo}
+  height: 100vh;
+  background-color: ${variaveis.cordefundo};
   overflow-x: hidden;
+  overflow-y: hidden;
 `
 
 export default EstiloGlobal

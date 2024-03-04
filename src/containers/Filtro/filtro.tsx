@@ -11,7 +11,7 @@ export type Props = {
   valor?: enums.Categoria
 }
 
-const Filtro = ({ criterio, valor }: Props) => {
+const Filtro = ({ criterio }: Props) => {
   const dispatch = useDispatch()
   const { termo } = useSelector((state: RootReducer) => state.filtro)
   const { ativo } = useSelector((state: RootReducer) => state.menu)
@@ -31,7 +31,7 @@ const Filtro = ({ criterio, valor }: Props) => {
             <FiltroCard valor={enums.Categoria.FAMILIA} criterio="familia" />
             <FiltroCard valor={enums.Categoria.TRABALHO} criterio="trabalho" />
             <FiltroCard valor={enums.Categoria.AMIGOS} criterio="amigos" />
-            <FiltroCard valor={enums.Categoria.TODOS} criterio="todos" />
+            <FiltroCard criterio="todos" />
           </S.Filtros>
         </MainContainer>
       </S.Ativo>
