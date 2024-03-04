@@ -213,7 +213,7 @@ export const Label = styled.label<Props>`
   text-decoration: underline;
 `
 export const Campo = styled.input`
-  padding: 8px;
+  padding: 5px;
   background-color: #fff;
   border-radius: 8px;
   font-weight: bold;

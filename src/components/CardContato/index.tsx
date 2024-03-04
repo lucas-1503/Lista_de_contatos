@@ -104,7 +104,7 @@ const Contato = ({
                 {' '}
                 {estaEditando ? (
                   <>
-                    <S.Campo onChange={alteraTelefone} />
+                    <S.Campo placeholder={telefone} onChange={alteraTelefone} />
                   </>
                 ) : (
                   `${telefone}`
