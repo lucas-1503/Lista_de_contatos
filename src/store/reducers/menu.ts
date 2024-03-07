@@ -1,18 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 type MenuState = {
-  ativo: string
+  ativo: boolean
 }
 
 const initialState: MenuState = {
-  ativo: 'isActive'
+  ativo: false
 }
 
 const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    mostraFiltro: (state, action: PayloadAction<string>) => {
+    mostraFiltro: (state, action: PayloadAction<boolean>) => {
       state.ativo = action.payload
     }
   }

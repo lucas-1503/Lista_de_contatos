@@ -70,7 +70,7 @@ const Formulario = () => {
                     defaultChecked={categoria === enums.Categoria.AMIGOS}
                   />
                   {''}
-                  <S.Label categoria={categoria} htmlFor={categoria}>
+                  <S.Label criterio={categoria} htmlFor={categoria}>
                     {categoria}
                   </S.Label>
                 </S.Opcao>

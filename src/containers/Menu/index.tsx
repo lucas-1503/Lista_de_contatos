@@ -1,20 +1,22 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as S from './styles'
 import { RootReducer } from '../../store'
+import { mostraFiltro } from '../../store/reducers/menu'
 
 const Menu = () => {
-  const { ativo } = useSelector((state: RootReducer) => state.menu)
-  const [display, setDisplay] = useState(false)
+  const { ativo: valorAtual } = useSelector((state: RootReducer) => state.menu)
+  const [ativo, setAtivo] = useState(valorAtual)
+  const dispatch = useDispatch()
 
-  // const alteraDisplay = () => {
-  //   const ativo = display
-  //   if (ativo === 'isActive') {
-  //     setDisplay('isInactive')
-  //   } else if (ativo === 'isInactive') {
-  //     setDisplay('isActive')
-  //   }
-  // }
+  function alteraDisplay() {
+    if (valorAtual === false) {
+      setAtivo(true)
+    } else {
+      setAtivo(false)
+    }
+    dispatch(mostraFiltro(ativo))
+  }
 
   return (
     <>
@@ -25,14 +27,8 @@ const Menu = () => {
               <S.Botao to="/novo">Cadastrar</S.Botao>
             </S.Item>
             <S.Item>
-              <S.Botao2
-                onClick={
-                  display === false
-                    ? () => setDisplay(true)
-                    : () => setDisplay(false)
-                }
-              >
-                {display === false ? 'mostrar filtro' : 'remover filtro'}
+              <S.Botao2 onClick={alteraDisplay}>
+                {ativo === false ? 'mostrar filtro' : 'remover filtro'}
               </S.Botao2>
             </S.Item>
           </S.Lista>

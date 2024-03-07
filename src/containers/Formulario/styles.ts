@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom'
 import * as enums from '../../uteis/index'
 
 type Props = {
-  categoria:
-    | enums.Categoria.AMIGOS
-    | enums.Categoria.FAMILIA
-    | enums.Categoria.TRABALHO
-    | 'todos'
+  criterio: 'familia' | 'amigos' | 'trabalho' | 'todos'
 }
 
 export const Titulo = styled.h2`
@@ -93,11 +89,11 @@ export const DivBotao = styled.div`
 `
 export const Label = styled.label<Props>`
   color: ${(props) =>
-    props.categoria == enums.Categoria.AMIGOS
+    props.criterio == 'amigos'
       ? '#f48020'
-      : props.categoria == enums.Categoria.FAMILIA
+      : props.criterio == 'familia'
       ? '#f72585'
-      : props.categoria == enums.Categoria.TRABALHO
+      : props.criterio == 'trabalho'
       ? '#f6e837'
       : `${variaveis.corPrincipal}`};
 `

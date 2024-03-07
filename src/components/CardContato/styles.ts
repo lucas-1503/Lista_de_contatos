@@ -3,23 +3,19 @@ import variaveis from '../../styles/variaveis'
 import * as enums from '../../uteis/index'
 
 type Props = {
-  categoria:
-    | enums.Categoria.AMIGOS
-    | enums.Categoria.FAMILIA
-    | enums.Categoria.TRABALHO
-    | 'todos'
+  criterio: 'familia' | 'amigos' | 'trabalho' | 'todos'
 }
 
 export const Card = styled.div<Props>`
   width: 200px;
   height: 300px;
   border: 3px solid
-    ${(props: Props) =>
-      props.categoria == enums.Categoria.AMIGOS
+    ${(props) =>
+      props.criterio == 'amigos'
         ? '#f48020'
-        : props.categoria == enums.Categoria.FAMILIA
+        : props.criterio == 'familia'
         ? '#f72585'
-        : props.categoria == enums.Categoria.TRABALHO
+        : props.criterio == 'trabalho'
         ? '#f6e837'
         : `${variaveis.corPrincipal}`};
   display: block;
@@ -57,12 +53,12 @@ export const Avatar = styled.img<Props>`
   height: 160px;
   width: 160px;
   border: 3px solid
-    ${(props: Props) =>
-      props.categoria == enums.Categoria.AMIGOS
+    ${(props) =>
+      props.criterio == 'amigos'
         ? '#f48020'
-        : props.categoria == enums.Categoria.FAMILIA
+        : props.criterio == 'familia'
         ? '#f72585'
-        : props.categoria == enums.Categoria.TRABALHO
+        : props.criterio == 'trabalho'
         ? '#f6e837'
         : `${variaveis.corPrincipal}`};
   margin-top: 10px;
@@ -71,14 +67,14 @@ export const Avatar = styled.img<Props>`
 export const Nome = styled.h2<Props>`
   font-size: 14px;
   font-weight: bold;
-  color: ${(props: Props) =>
-    props.categoria == enums.Categoria.AMIGOS
+  color: ${(props) =>
+    props.criterio == 'amigos'
       ? '#f48020'
-      : props.categoria == enums.Categoria.FAMILIA
+      : props.criterio == 'familia'
       ? '#f72585'
-      : props.categoria == enums.Categoria.TRABALHO
+      : props.criterio == 'trabalho'
       ? '#f6e837'
-      : '#000'};
+      : `${variaveis.corPrincipal}`};
   height: 50px;
   display: flex;
   justify-content: center;
@@ -116,14 +112,14 @@ export const DivNome = styled.div<Props>`
   margin: 0;
   padding: 0;
   border-bottom: 2px solid
-    ${(props: Props) =>
-      props.categoria == enums.Categoria.AMIGOS
+    ${(props) =>
+      props.criterio == 'amigos'
         ? '#f48020'
-        : props.categoria == enums.Categoria.FAMILIA
+        : props.criterio == 'familia'
         ? '#f72585'
-        : props.categoria == enums.Categoria.TRABALHO
+        : props.criterio == 'trabalho'
         ? '#f6e837'
-        : '#000'};
+        : `${variaveis.corPrincipal}`};
 `
 export const DivTexto = styled.div`
   max-width: 200px;
@@ -148,14 +144,14 @@ export const BotaoCancelarRemover = styled.button<Props>`
     background-color: rgba(255, 8, 0, 0.7);
   }
   border: 2px solid
-    ${(props: Props) =>
-      props.categoria == enums.Categoria.AMIGOS
+    ${(props) =>
+      props.criterio == 'amigos'
         ? '#f48020'
-        : props.categoria == enums.Categoria.FAMILIA
+        : props.criterio == 'familia'
         ? '#f72585'
-        : props.categoria == enums.Categoria.TRABALHO
+        : props.criterio == 'trabalho'
         ? '#f6e837'
-        : '#000'};
+        : `${variaveis.corPrincipal}`};
 `
 
 export const BotaoEditar = styled.button<Props>`
@@ -169,14 +165,14 @@ export const BotaoEditar = styled.button<Props>`
     background-color: rgb(9, 116, 255, 0.7);
   }
   border: 2px solid
-    ${(props: Props) =>
-      props.categoria == enums.Categoria.AMIGOS
+    ${(props) =>
+      props.criterio == 'amigos'
         ? '#f48020'
-        : props.categoria == enums.Categoria.FAMILIA
+        : props.criterio == 'familia'
         ? '#f72585'
-        : props.categoria == enums.Categoria.TRABALHO
+        : props.criterio == 'trabalho'
         ? '#f6e837'
-        : '#000'};
+        : `${variaveis.corPrincipal}`};
 `
 
 export const BotaoSalvar = styled.button<Props>`
@@ -190,26 +186,26 @@ export const BotaoSalvar = styled.button<Props>`
     background-color: rgba(0, 255, 0, 0.7);
   }
   border: 2px solid
-    ${(props: Props) =>
-      props.categoria == enums.Categoria.AMIGOS
+    ${(props) =>
+      props.criterio == 'amigos'
         ? '#f48020'
-        : props.categoria == enums.Categoria.FAMILIA
+        : props.criterio == 'familia'
         ? '#f72585'
-        : props.categoria == enums.Categoria.TRABALHO
+        : props.criterio == 'trabalho'
         ? '#f6e837'
-        : '#000'};
+        : `${variaveis.corPrincipal}`};
 `
 export const Label = styled.label<Props>`
   font-size: 10px;
   font-weight: bold;
-  color: ${(props: Props) =>
-    props.categoria == enums.Categoria.AMIGOS
+  color: ${(props) =>
+    props.criterio == 'amigos'
       ? '#f48020'
-      : props.categoria == enums.Categoria.FAMILIA
+      : props.criterio == 'familia'
       ? '#f72585'
-      : props.categoria == enums.Categoria.TRABALHO
+      : props.criterio == 'trabalho'
       ? '#f6e837'
-      : '#000'};
+      : `${variaveis.corPrincipal}`};
   text-decoration: underline;
 `
 export const Campo = styled.input`

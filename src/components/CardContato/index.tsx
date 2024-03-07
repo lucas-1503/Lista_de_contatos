@@ -49,25 +49,25 @@ const Contato = ({
   console.log(estaEditando)
   return (
     <>
-      <S.Card categoria={categoria}>
+      <S.Card criterio={categoria}>
         <S.Inner className="inner">
           <S.Front>
             <S.Avatar
-              categoria={categoria}
+              criterio={categoria}
               src="https://placehold.co/150"
               alt=""
             />
-            <S.Nome categoria={categoria}>{nome}</S.Nome>
+            <S.Nome criterio={categoria}>{nome}</S.Nome>
             <S.Texto>Hover para mais informações</S.Texto>
           </S.Front>
           <S.Back className="back">
-            <S.DivNome categoria={categoria}>
-              <S.Nome categoria={categoria}>
+            <S.DivNome criterio={categoria}>
+              <S.Nome criterio={categoria}>
                 {estaEditando ? 'Editando:' + `${nome}` : `${nome}`}
               </S.Nome>
             </S.DivNome>
             <S.DivTexto>
-              <S.Label categoria={categoria}>
+              <S.Label criterio={categoria}>
                 {estaEditando ? 'Nome:' : 'Categoria:'}
               </S.Label>
               <S.Texto>
@@ -84,7 +84,7 @@ const Contato = ({
                   `${categoria}`
                 )}
               </S.Texto>
-              <S.Label categoria={categoria}>E-mail:</S.Label>
+              <S.Label criterio={categoria}>E-mail:</S.Label>
               <S.Texto>
                 {estaEditando ? (
                   <>
@@ -99,7 +99,7 @@ const Contato = ({
                   `${email}`
                 )}
               </S.Texto>
-              <S.Label categoria={categoria}>Telefone:</S.Label>
+              <S.Label criterio={categoria}>Telefone:</S.Label>
               <S.Texto>
                 {' '}
                 {estaEditando ? (
@@ -114,11 +114,11 @@ const Contato = ({
             <S.DivBotao>
               {estaEditando ? (
                 <>
-                  <S.BotaoSalvar categoria={categoria} onClick={salvarEdicao}>
+                  <S.BotaoSalvar criterio={categoria} onClick={salvarEdicao}>
                     Salvar
                   </S.BotaoSalvar>
                   <S.BotaoCancelarRemover
-                    categoria={categoria}
+                    criterio={categoria}
                     onClick={cancelarEdicao}
                   >
                     Cancelar
@@ -127,13 +127,13 @@ const Contato = ({
               ) : (
                 <>
                   <S.BotaoEditar
-                    categoria={categoria}
+                    criterio={categoria}
                     onClick={() => setEstaEditando(true)}
                   >
                     Editar
                   </S.BotaoEditar>
                   <S.BotaoCancelarRemover
-                    categoria={categoria}
+                    criterio={categoria}
                     onClick={() => dispatch(deletar(id))}
                   >
                     Deletar
