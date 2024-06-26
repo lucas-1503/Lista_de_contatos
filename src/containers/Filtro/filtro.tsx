@@ -16,14 +16,10 @@ const Filtro = ({ criterio }: Props) => {
   const dispatch = useDispatch()
   const { termo } = useSelector((state: RootReducer) => state.filtro)
   const { ativo: valorAtual } = useSelector((state: RootReducer) => state.menu)
-  const [ativo, setAtivo] = useState(valorAtual)
-
-  const estado = ativo
-  console.log(ativo)
 
   return (
     <>
-      <S.Ativo className={estado === true ? 'isActive' : 'isInactive'}>
+      <S.Ativo className={valorAtual === true ? 'isActive' : 'isInactive'}>
         <MainContainer>
           <S.Campo
             type="text"
